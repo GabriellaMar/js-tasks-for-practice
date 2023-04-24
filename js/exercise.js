@@ -1609,7 +1609,7 @@
 
 
 
-//=====================================Задача Codewars========================
+//=====================================Задача Codewars 43========================
 
 // Дано ціле невід’ємне число, наприклад 3, поверніть рядок із бурчанням: «1 вівця...2 вівця...3 вівця...».
 //  Вхідні дані завжди будуть дійсними, тобто жодних від’ємних чисел.
@@ -1637,26 +1637,108 @@
 // // console.log(drawStairs((6), "I\n I\n  I", "There's something wrong with these 3 steps"))
 
 //=================Задача з Codewars про роки котів та собак 
-function humanYearsCatYearsDogYears(humanYears) {
-  if (humanYears < 1) {
-    return [0, 0, 0];
-  }
+// function humanYearsCatYearsDogYears(humanYears) {
+//   if (humanYears < 1) {
+//     return [0, 0, 0];
+//   }
 
-  let catYears;
-  let dogYears;
+//   let catYears;
+//   let dogYears;
 
-  if (humanYears === 1) {
-    catYears = 15;
-    dogYears = 15;
-  } else if (humanYears === 2) {
-    catYears = 15 + 9;
-    dogYears = 15 + 9;
-  } else {
-    catYears = 15 + 9 + 4 * (humanYears - 2);
-    dogYears = 15 + 9 + 5 * (humanYears - 2);
-  }
+//   if (humanYears === 1) {
+//     catYears = 15;
+//     dogYears = 15;
+//   } else if (humanYears === 2) {
+//     catYears = 15 + 9;
+//     dogYears = 15 + 9;
+//   } else {
+//     catYears = 15 + 9 + 4 * (humanYears - 2);
+//     dogYears = 15 + 9 + 5 * (humanYears - 2);
+//   }
 
-  return [humanYears, catYears, dogYears];
+//   return [humanYears, catYears, dogYears];
+// }
+
+// console.log(humanYearsCatYearsDogYears(10)); // [10, 56, 64]
+
+
+
+//==========================Задача з однієї з співбесід 44==============
+// // Дано масив чисел. Відсотрувати масив так. щоб непарні числа відсортувалися по зростанню, а  парні залишилися на їх містах 
+
+ array = [5, 3, 2, 8, 1, 4] 
+//  arr1 = [10, 3, 1, 2, 5, 8, 1, 7 4] 
+ // має бути результат [1,3,2, 8, 5, 4]
+
+
+
+// function sortArray(array) {
+//   // Створюємо масив з парних чисел
+//   const evenArray = array.filter(num => num % 2 === 0);
+//   console.log(evenArray)
+//   // Сортуємо масив непарних чисел по зростанню
+ 
+//   const oddArray = array.filter(num => num % 2 !== 0).sort((a, b) => a - b);
+//   console.log(oddArray)
+//   // Повертаємо масив, в якому спочатку йдуть непарні відсортовані числа, а потім залишок парних чисел у тому ж порядку
+//    return array.map(num => {
+//     if (num % 2 !== 0) {
+//       return oddArray.shift();
+//       console.log(oddArray.shift())
+//     } 
+//       else {
+//       return evenArray.shift();
+//       }
+   
+//   });
+// }
+// console.log(sortArray(array)); // [1, 3, 2, 8, 5, 4]
+
+
+//  function mergeArrays(arr1, arr2) {
+//   const newArray = arr1.concat(arr2);
+//   console.log(newArray)
+//   const sortArray = newArray.filter((el, index, arr)=> arr.indexOf(el) === index).sort((a, b) =>a-b)
+//   console.log(sortArray)
+   
+//   return sortArray
+  
+// }
+// mergeArrays([1,3,5,7,9,11,12], [1,2,3,4,5,10,12])
+
+
+
+//======================= ЗАДАЧА з codewars 45 ==============
+// Дано двовимірний масив цілих чисел, повернути зведену версію масиву з усіма
+//  цілими числами в порядку зростання (за зростанням).
+
+// приклад:
+
+// З огляду на [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], ваша функція має повернути [1, 2, 3, 4, 5, 6, 7, 8 , 9].
+
+// function flattenAndSort(array) {
+//   let newArray = []
+//   if (array !== []) {
+//  return array.flatMap(arr => arr)
+//  .sort((a, b) => a - b);
+//   }
+//   else {return newArray}
+// }
+// console.log(flattenAndSort([[], []]))
+
+//====================Задача з Кодварсу =======================
+
+// There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+ console.log(findUniq([ 1, 1, 1, 2, 1, 1 ])) 
+ console.log(findUniq([ 0, 0, 0.55, 0, 0 ]))
+
+// function findUniq(arr) {
+//   const sortedArr = arr.sort();
+//   return sortedArr[0] === sortedArr[1] ? sortedArr[sortedArr.length - 1] : sortedArr[0];
+// }
+
+function findUniq(arr) {
+  const uniqueElements = arr.filter((el) => arr.indexOf(el) === arr.lastIndexOf(el));
+  return uniqueElements[0];
 }
-
-console.log(humanYearsCatYearsDogYears(10)); // [10, 56, 64]
