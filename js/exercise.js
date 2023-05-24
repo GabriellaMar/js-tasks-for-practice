@@ -8,6 +8,8 @@
 // c = c + 'New string';
 // console.log(c)
 
+// const { number } = require("joi");
+
 //====================  1  Задача про обчислення премії, оподаткування та балансу на рахунку ============
 // let bonus;
 // let tax;
@@ -1666,7 +1668,7 @@
 //==========================Задача з однієї з співбесід 44==============
 // // Дано масив чисел. Відсотрувати масив так. щоб непарні числа відсортувалися по зростанню, а  парні залишилися на їх містах 
 
- array = [5, 3, 2, 8, 1, 4] 
+//  array = [5, 3, 2, 8, 1, 4] 
 //  arr1 = [10, 3, 1, 2, 5, 8, 1, 7 4] 
  // має бути результат [1,3,2, 8, 5, 4]
 
@@ -1730,15 +1732,173 @@
 
 // There is an array with some numbers. All numbers are equal except for one. Try to find it!
 
- console.log(findUniq([ 1, 1, 1, 2, 1, 1 ])) 
- console.log(findUniq([ 0, 0, 0.55, 0, 0 ]))
+//  console.log(findUniq([ 1, 1, 1, 2, 1, 1 ])) 
+//  console.log(findUniq([ 0, 0, 0.55, 0, 0 ]))
+
+// // function findUniq(arr) {
+// //   const sortedArr = arr.sort();
+// //   return sortedArr[0] === sortedArr[1] ? sortedArr[sortedArr.length - 1] : sortedArr[0];
+// // }
 
 // function findUniq(arr) {
-//   const sortedArr = arr.sort();
-//   return sortedArr[0] === sortedArr[1] ? sortedArr[sortedArr.length - 1] : sortedArr[0];
+//   const uniqueElements = arr.filter((el) => arr.indexOf(el) === arr.lastIndexOf(el));
+//   return uniqueElements[0];
 // }
 
-function findUniq(arr) {
-  const uniqueElements = arr.filter((el) => arr.indexOf(el) === arr.lastIndexOf(el));
-  return uniqueElements[0];
-}
+
+//===================Задача з кодварсу=========
+// function replaceAll(seq, old, newElem) {
+//   // Перевіряємо тип вхідних даних
+ 
+//   if (seq.constructor === String) { // для рядків
+//     return seq.split(old).join(newElem);
+  
+    
+//   }
+//   else if (Array.isArray(seq)) { // для масивів
+//     return seq.map(item => item === old ? newElem : item);
+//   }
+//   else { // якщо вхідний параметр не є рядком або масивом, повертаємо null
+//     return null;
+//   }
+// }
+
+// console.log(replaceAll('Hello, World!', 'l', 'L'));
+//  console.log(replaceAll([], 1, 2))
+
+//  console.log(replaceAll([1,2,2], 1, 2));
+
+// function largest(n, array) {
+//   let arr = array.filter((el, index)=>{
+//     if(el> el[index-1] && el> el[index+1] &&  index > 0 && index < array.length - 1){
+//     // arr.push(el[index])
+//     return  arr.slice(0, n);
+//     }
+//    return [];
+//   })
+// }
+// console.log(largest(2, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
+
+
+// string="aaaaaaaabaaaa"
+// const compress = function (str) {
+//   let newArr1= []
+//   let newArr2 = []
+//   let newArr3 = []
+
+//  const arr = str.split('');
+//  console.log(arr)
+//  const arr1 = arr.slice(0, str.indexOf('b')).length
+//   newArr1.push(arr1, 'a')
+//  console.log(newArr1)
+
+//  const arr2 = arr.filter(el => el.includes('b')).length
+
+// newArr2.push(arr2, 'b')
+// console.log(newArr2)
+
+//  const arr3 = arr.slice(str.indexOf('b')+1).length
+//  newArr3.push(arr3, 'a')
+
+//  console.log(newArr3)
+// //  console.log(str1)
+// const compressed = [[arr1, 'a'], [arr2, 'b'], [arr3, 'a']];
+// return compressed;
+
+// }
+
+// compress("aaaaaaaabaaaa")
+
+//===============Задача Codewars 7 level===============
+// function removeSmallest(numbers) {
+// if(numbers.length ===0) {
+//   return [];
+// }
+// const minIndex = numbers.indexOf(Math.min(...numbers));
+// console.log(minIndex)
+// // const min = Math.min(...numbers);
+// const newArr = [...numbers]
+// console.log(newArr)
+// newArr.splice(minIndex, 1);
+
+// return newArr
+// }
+//  console.log(removeSmallest([1, 2, 3, 4, 5])); //  [2, 3, 4, 5]
+// console.log(removeSmallest([2, 2, 1, 2, 1])); // [2, 2, 2, 1]
+
+
+//==============Задача Codewars 7 level============
+// function createPhoneNumber(numbers){
+//   const a = numbers.slice(0,3).join('');
+//   const b= numbers.slice(3, 6).join('');
+//   const c = numbers.slice(6).join('');
+//   console.log(b)
+//   console.log(a)
+//   return `(${a}) ${b}-${c}`
+  
+// }
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])) // "(123) 456-7890";
+
+// // ++++++++++++++++++++Інший спосіб вирішення цієї задачі  КРУТИЙ 
+
+// function createPhoneNumber(numbers){
+//   var format = "(xxx) xxx-xxxx";
+  
+//   for(var i = 0; i < numbers.length; i++)
+//   {
+//     format = format.replace('x', numbers[i]);
+//   }
+  
+//   return format;
+// }
+
+
+//========================Задача з Codewars  =
+  
+// Відшукати номер телефоу 
+
+// // function isItANum(str) {
+// //   const regex = /^0\d{10}$/; // регулярний вираз для номера телефону з 11 цифрами починаючи з 0
+// //   let number = str.replace(/\D/g, ''); // видаляємо всі нецифрові символи
+// //   if (!regex.test(number) || number.length !== 11 && number.length !== 10) {
+// //     return "Not a phone number";
+// //   } else {
+// //     return number;
+// //   }
+// // }
+// //   console.log(isItANum("S:)0207ERGQREG88349F82!efRF)")) // "02078834982";
+
+// String.prototype.toAlternatingCase = function () {
+// const arr = string.split('')
+// console.log(arr)
+// }
+
+
+// "hello world".toAlternatingCase()// "HELLO WORLD"
+
+
+//============Задача з Codewars=================
+
+// УМОВА
+//   Потрібно вивести максимальне та мінімальне число зі строки у вигляді строки 
+
+// function highAndLow(numbers){
+//   const numArr = numbers.split(' ');
+//   let min = parseInt(numArr[0]);
+//   let max = parseInt(numArr[0]);
+
+//   numArr.forEach((num) => {
+//     if (parseInt(num) < min) {
+//       min = parseInt(num);
+//     }
+
+//     if (parseInt(num) > max) {
+//       max = parseInt(num);
+//     }
+//   });
+
+//   return `${max} ${min}`;
+// }
+
+// console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"))// "42 -9"
+// console.log( highAndLow("1 2 3"))// "3 1"
